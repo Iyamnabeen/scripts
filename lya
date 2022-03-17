@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+display_help() {
+    echo "Usage: $0 [option...] {start|stop|restart}" >&2
+    echo
+    echo "   -h,        Print this Help menu"
+    echo "   -u, 	Update jokes [ Needs to be online ]"
+    echo "   -l,	Color the output with lolcat"	
+    exit 1
+}
+
+update() {
+    echo "This is a log"
+}
+lolcat(){
+	shuf -n 1 jokes| lolcat
+}
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -h|--help) display_help; shift ;;
+        -u|--update) update; shift ;;
+	-l|--lol) lolcat; shift ;;
+
+        # ... (same format for other required arguments)
+        *) echo "Unknown parameter passed: $1" ;;
+    esac
+    shift
+done
+
