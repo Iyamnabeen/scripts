@@ -1,0 +1,2 @@
+#!/bin/bash
+maim --select ~/pix/$RANDOM.png
