@@ -1,0 +1,5 @@
+#!/bin/bash
+doas rfkill block bluetooth
+doas ifconfig eth0 down
+doas ifconfig lo down
+
